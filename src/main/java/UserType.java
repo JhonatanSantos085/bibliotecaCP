@@ -1,4 +1,5 @@
 public enum UserType {
     ADMIN,
-    BASIC
+    BASIC,
+    STUDENT
 }
