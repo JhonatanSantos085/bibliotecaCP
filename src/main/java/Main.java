@@ -5,7 +5,8 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        byte op;
+        byte opcao1;
+        byte opcao2;
 
         do {
             System.out.print("Escolha uma opção abaixo\n" +
@@ -16,9 +17,61 @@ public class Main {
                     "[5] - Ir para locação \n" +
                     "[0] - Sair\n" +
                     "Digite aqui a opção: ");
-            op = scanner.nextByte();
+            opcao1 = scanner.nextByte();
+            switch (opcao1) {
 
-        } while (op != 0);
+                case 1:
+                    System.out.println("Cadastrando funcionario");
+                    break;
+                case 2:
+                    System.out.println("Cadastrando usuario");
+                    break;
+                case 3:
+                    System.out.println("Cadastrando livro");
+                    break;
+                case 4:
+                    System.out.println("Mostrando os dados cadastrados");
+                    do{
+                        System.out.println("Escolha uma opção abaixo\n" +
+                                "[1] - ExibirInfo funcionário\n" +
+                                "[2] - ExibirInfo usuário\n" +
+                                "[3] - ExibirInfo livro\n" +
+                                "[0] - Voltar ao menu principal\n");
+                        opcao2 = scanner.nextByte();
+                        switch (opcao2){
+                            case 1:
+                                System.out.println("Exibindo informacoes do funcionario");
+                                break;
+                            case 2:
+                                System.out.println("Exibindo informacoes do usuario");
+                                break;
+                            case 3:
+                                System.out.println("Exibindo informacoes do livro");
+                                break;
+                            case 0:
+                                System.out.println("Voltando ao menu principal");
+                                break;
+                            default:
+                                System.out.println("Digite uma opcao valida.");
+
+                        }
+
+
+                    }while(opcao2 != 0);
+                    break;
+                case 5:
+                    System.out.println("Abrindo menu de locacao");
+                    break;
+                case 0:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Digite uma opcao valida");
+
+
+            }
+
+        } while (opcao1 != 0);
 
 
     }
