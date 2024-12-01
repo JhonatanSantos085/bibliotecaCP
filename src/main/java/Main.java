@@ -22,6 +22,8 @@ public class Main {
 
                 case 1:
                     System.out.println("Cadastrando funcionario");
+                    Funcionario funcionario = new Funcionario();
+                    funcionario.cadastrarFuncionario();
                     break;
                 case 2:
                     System.out.println("Cadastrando usuario");
