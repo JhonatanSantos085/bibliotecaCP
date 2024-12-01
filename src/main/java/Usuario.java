@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Usuario {
 
     private String nome;
@@ -5,8 +7,23 @@ public class Usuario {
     private long cpf;
     private Endereco endereco;
     private String email;
-    private String senha;
     private UserType tipoDeUsuario;
+
+    Scanner scan = new Scanner(System.in);
+    public void cadastrarUsuario() {
+        System.out.println("Digite o nome do usuario");
+        setNome(scan.nextLine());
+        System.out.println("Digite o codigo do usuario");
+        setCodigo(scan.nextLong());
+        System.out.println("Digite o cpf do usuario");
+        setCpf(scan.nextLong());
+        System.out.println("Digite o endereco do usuario");
+        var endereco = new Endereco();
+        endereco.local();
+        System.out.println("Digite o email do usuario");
+        setEmail(scan.next());
+
+    }
 
 
     public String getNome() {
@@ -47,14 +64,6 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public UserType getTipoDeUsuario() {

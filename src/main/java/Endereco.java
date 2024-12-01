@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Endereco {
     private String rua;
-    private int numero;
+    private String numero;
     private String bairro;
 
     Scanner scanner = new Scanner(System.in);
@@ -13,8 +13,7 @@ public class Endereco {
         setRua(scanner.nextLine());
 
         System.out.print("Digite o numero da sua casa: ");
-        setNumero(Integer.parseInt(scanner.nextLine())); // Consumir a nova linha residual
-
+        setNumero(scanner.nextLine());
         System.out.print("Digite o seu Bairro: ");
         setBairro(scanner.nextLine());
     }
@@ -27,11 +26,11 @@ public class Endereco {
         this.rua = rua;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

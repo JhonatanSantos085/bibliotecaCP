@@ -7,6 +7,7 @@ public class Main {
 
         byte opcao1;
         byte opcao2;
+        byte opcao3;
 
         do {
             System.out.print("Escolha uma opção abaixo\n" +
@@ -27,6 +28,8 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Cadastrando usuario");
+                    Usuario usuario = new Usuario();
+                    usuario.cadastrarUsuario();
                     break;
                 case 3:
                     System.out.println("Cadastrando livro");
@@ -46,6 +49,7 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println("Exibindo informacoes do usuario");
+
                                 break;
                             case 3:
                                 System.out.println("Exibindo informacoes do livro");
@@ -63,6 +67,28 @@ public class Main {
                     break;
                 case 5:
                     System.out.println("Abrindo menu de locacao");
+                    do {
+                        System.out.println("Escolha uma opção abaixo\n" +
+                                "[0] - Voltar para menu princial\n" +
+                                "[1] - Locar Livro\n" +
+                                "[2] - Devolucao\n" );
+                        opcao3 = scanner.nextByte();
+
+                        switch (opcao3) {
+                            case 0:
+                                System.out.println("Voltando para o menu principal, só um minuto...");
+                                break;
+                            case 1:
+                                System.out.println("Você selecionou a opção de um alugar um livro.");
+                                break;
+                            case 2:
+                                System.out.println("Você escolheu devolver um livro.");
+                                break;
+                            default:
+                                System.out.println("Opção inválida! Tente novamente.");
+                        }
+
+                    } while (opcao3 != 0);
                     break;
                 case 0:
                     System.out.println("Saindo...");
