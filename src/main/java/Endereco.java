@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Endereco {
+public class   Endereco {
     private String rua;
     private int numero;
     private String bairro;
