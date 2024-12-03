@@ -33,6 +33,8 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Cadastrando livro");
+                    Livro livro = new Livro();
+                    livro.cadastrarLivro();
                     break;
                 case 4:
                     System.out.println("Mostrando os dados cadastrados");
