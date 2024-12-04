@@ -1,9 +1,23 @@
-public class Livro {
+import java.util.Scanner;
 
+public class Livro {
+    private int id;
     private String titulo;
     private String genero;
     private String autor;
+    private boolean estadoLocacao;
 
+    Scanner scanner = new Scanner(System.in);
+
+    public void cadastrarLivro() {
+        System.out.println("Cadastrando o livro...");
+        System.out.println("Título do livro: ");
+        titulo = scanner.nextLine();
+        System.out.println("Gênero do livro: ");
+        genero = scanner.nextLine();
+        System.out.println("Autor do livro: ");
+        autor = scanner.nextLine();
+    }
 
     @Override
     public String toString() {
