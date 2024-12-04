@@ -8,8 +8,10 @@ public class Usuario {
     private Endereco endereco;
     private String email;
     private UserType tipoDeUsuario;
+    private boolean tipoValido = false;
 
     Scanner scan = new Scanner(System.in);
+
     public void cadastrarUsuario() {
         System.out.println("Digite o nome do usuario");
         setNome(scan.nextLine());
@@ -17,14 +19,24 @@ public class Usuario {
         setCodigo(scan.nextLong());
         System.out.println("Digite o cpf do usuario");
         setCpf(scan.nextLong());
-        System.out.println("Digite o endereco do usuario");
-        var endereco = new Endereco();
-        endereco.local();
         System.out.println("Digite o email do usuario");
         setEmail(scan.next());
 
-    }
+        while (!tipoValido) {
+            System.out.println("Digite o tipo do usuario (ADMIN, BASIC, STUDENT)");
+            String tipoInput = scan.nextLine().toUpperCase();
 
+            try {
+                setTipoDeUsuario(UserType.valueOf(tipoInput));
+                tipoValido = true;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Tipo inválido. Por favor, tente novamente.");
+            }
+        }
+        System.out.println("Digite o endereco do usuario");
+        var endereco = new Endereco();
+        endereco.local();
+    }
 
     public String getNome() {
         return nome;
