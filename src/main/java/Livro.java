@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 public class Livro {
-
+    private int id;
     private String titulo;
     private String genero;
     private String autor;
+    private boolean estadoLocacao;
 
     Scanner scanner = new Scanner(System.in);
 

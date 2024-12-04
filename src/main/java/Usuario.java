@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Usuario {
-
+    private int id;
     private String nome;
     private long codigo;
     private long cpf;

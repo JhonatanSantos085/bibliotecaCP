@@ -1,11 +1,13 @@
 import java.util.Scanner;
 
 public class Funcionario {
+    private int id;
     private String nome;
     private Long cpf;
     private String cargo;
     private double salario;
     private Endereco endereco;
+
 
     Scanner scan = new Scanner(System.in);
 
