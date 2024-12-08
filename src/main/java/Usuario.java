@@ -12,6 +12,9 @@ public class Usuario {
 
     Scanner scan = new Scanner(System.in);
 
+
+
+
     public void cadastrarUsuario() {
         System.out.println("Digite o nome do usuario");
         setNome(scan.nextLine());
@@ -21,6 +24,8 @@ public class Usuario {
         setCpf(scan.nextLong());
         System.out.println("Digite o email do usuario");
         setEmail(scan.next());
+
+
 
         while (!tipoValido) {
             System.out.println("Digite o tipo do usuario (ADMIN, BASIC, STUDENT)");
@@ -36,7 +41,11 @@ public class Usuario {
         System.out.println("Digite o endereco do usuario");
         var endereco = new Endereco();
         endereco.local();
+
+
     }
+
+
 
     public String getNome() {
         return nome;
