@@ -25,8 +25,6 @@ public class Usuario {
         System.out.println("Digite o email do usuario");
         setEmail(scan.next());
 
-
-
         while (!tipoValido) {
             System.out.println("Digite o tipo do usuario (ADMIN, BASIC, STUDENT)");
             String tipoInput = scan.nextLine().toUpperCase();

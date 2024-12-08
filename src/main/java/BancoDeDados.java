@@ -6,6 +6,8 @@ public class BancoDeDados {
     private List<Funcionario> employees;
     private List<Usuario> users;
 
+    private int bookIdCounter = 1;
+
     public BancoDeDados(){
         books = new ArrayList<>();
         employees = new ArrayList<>();
@@ -13,7 +15,9 @@ public class BancoDeDados {
     }
 
     public void postBook(Livro livro){
+        livro.setId(bookIdCounter);
         books.add(livro);
+        bookIdCounter ++;
     }
     public void getBook(){
         for (Livro livro : books){
