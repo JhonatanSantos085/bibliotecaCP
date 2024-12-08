@@ -22,10 +22,19 @@ public class Livro {
     @Override
     public String toString() {
         return "Livro{" +
-                "Titulo='" + titulo + '\'' +
+                "Id= '" + id + '\'' +
+                ", Titulo='" + titulo + '\'' +
                 ", Gênero='" + genero + '\'' +
                 ", Autor='" + autor + '\'' +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setTitulo(String titulo) {

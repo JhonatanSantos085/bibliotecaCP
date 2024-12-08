@@ -4,6 +4,8 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        Usuario usuario = new Usuario();
+        BancoDeDados db = new BancoDeDados();
 
         byte opcao1;
         byte opcao2;
@@ -28,13 +30,14 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Cadastrando usuario");
-                    Usuario usuario = new Usuario();
                     usuario.cadastrarUsuario();
+
                     break;
                 case 3:
                     System.out.println("Cadastrando livro");
                     Livro livro = new Livro();
                     livro.cadastrarLivro();
+                    db.postBook(livro);
                     break;
                 case 4:
                     System.out.println("Mostrando os dados cadastrados");
@@ -55,6 +58,7 @@ public class Main {
                                 break;
                             case 3:
                                 System.out.println("Exibindo informacoes do livro");
+                                db.getBook();
                                 break;
                             case 0:
                                 System.out.println("Voltando ao menu principal");

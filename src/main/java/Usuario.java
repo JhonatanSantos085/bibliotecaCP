@@ -12,6 +12,9 @@ public class Usuario {
 
     Scanner scan = new Scanner(System.in);
 
+
+
+
     public void cadastrarUsuario() {
         System.out.println("Digite o nome do usuario");
         setNome(scan.nextLine());
@@ -36,7 +39,11 @@ public class Usuario {
         System.out.println("Digite o endereco do usuario");
         var endereco = new Endereco();
         endereco.local();
+
+
     }
+
+
 
     public String getNome() {
         return nome;
