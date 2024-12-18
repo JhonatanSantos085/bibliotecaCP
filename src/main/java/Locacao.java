@@ -7,7 +7,7 @@ public class Locacao {
     private Data dataLocacao;
     private Data dataDevolucao;
     private Livro objLivroLocado;
-    private double precoLocacao;
+    private double precoLocacao = 10;
 
     public double getValorLocacao() {
         return valorLocacao;

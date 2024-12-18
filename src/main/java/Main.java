@@ -6,10 +6,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Usuario usuario = new Usuario();
         BancoDeDados db = new BancoDeDados();
+        Locacao locacao = new Locacao();
 
         byte opcao1;
         byte opcao2;
         byte opcao3;
+        byte opcao4;
 
         do {
             System.out.print("Escolha uma opção abaixo\n" +
@@ -35,7 +37,7 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Cadastrando livro");
-                    Livro livro = new Livro();
+                    var livro = new Livro();
                     livro.cadastrarLivro();
                     db.postBook(livro);
                     break;
@@ -86,6 +88,31 @@ public class Main {
                                 break;
                             case 1:
                                 System.out.println("Você selecionou a opção de um alugar um livro.");
+
+                                do {
+                                    System.out.println("Escolha uma opção abaixo\n" +
+                                            "[0] - Voltar para menu princial\n" +
+                                            "[1] - Locar Livro\n" +
+                                            "[2] - Mostrar Livros Disponiveis\n" );
+                                    opcao4= scanner.nextByte();
+                                    switch(opcao4){
+                                        case 0:
+                                            System.out.println("Voltando");
+                                            break;
+                                        case 1:
+                                            do {
+                                                db.locandoLivro();
+                                            }while (db.getPesquisaDeLocacao().equals("error"));
+                                            break;
+                                        case 2:
+                                            db.getBookAvailable();
+                                            break;
+                                        default:
+                                            System.out.println("Opção invalida");
+                                    }
+
+                                }while(opcao4 != 0);
+
                                 break;
                             case 2:
                                 System.out.println("Você escolheu devolver um livro.");

@@ -6,6 +6,8 @@ public class Livro {
     private String genero;
     private String autor;
     private boolean estadoLocacao;
+    // true = o livro está disponive
+    // false = o livro foi locado
 
     Scanner scanner = new Scanner(System.in);
 
@@ -17,6 +19,7 @@ public class Livro {
         genero = scanner.nextLine();
         System.out.println("Autor do livro: ");
         autor = scanner.nextLine();
+        setEstadoLocacao(true);
     }
 
     @Override
@@ -26,6 +29,7 @@ public class Livro {
                 ", Titulo='" + titulo + '\'' +
                 ", Gênero='" + genero + '\'' +
                 ", Autor='" + autor + '\'' +
+                ", Disponibilidade='" + estadoLocacao + '\'' +
                 '}';
     }
 
@@ -61,4 +65,11 @@ public class Livro {
         return autor;
     }
 
+    public boolean isEstadoLocacao() {
+        return estadoLocacao;
+    }
+
+    public void setEstadoLocacao(boolean estadoLocacao) {
+        this.estadoLocacao = estadoLocacao;
+    }
 }
