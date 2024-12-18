@@ -9,6 +9,7 @@ public class Locacao {
     private Livro objLivroLocado;
     private double precoLocacao = 10;
 
+
     public double getValorLocacao() {
         return valorLocacao;
     }
@@ -71,5 +72,13 @@ public class Locacao {
 
     public void setObjLivroLocado(Livro objLivroLocado) {
         this.objLivroLocado = objLivroLocado;
+    }
+
+    public double getPrecoLocacao() {
+        return precoLocacao;
+    }
+
+    public void setPrecoLocacao(double precoLocacao) {
+        this.precoLocacao = precoLocacao;
     }
 }

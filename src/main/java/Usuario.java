@@ -43,7 +43,20 @@ public class Usuario {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", codigo=" + codigo +
+                ", cpf=" + cpf +
+                ", endereco=" + endereco +
+                ", email='" + email + '\'' +
+                ", tipoDeUsuario=" + tipoDeUsuario +
+                ", tipoValido=" + tipoValido +
+                ", scan=" + scan +
+                '}';
+    }
 
     public String getNome() {
         return nome;
