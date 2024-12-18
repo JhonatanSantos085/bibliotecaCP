@@ -9,13 +9,6 @@ public class Locacao {
     private Livro objLivroLocado;
     private double precoLocacao = 10;
 
-    Usuario usuario = new Usuario();
-
-    public void calcularDesconto() {
-        if (usuario.getTipoDeUsuario() == UserType.STUDENT) {
-            setPrecoLocacao(getPrecoLocacao() / 2);
-        }
-    }
 
     public double getValorLocacao() {
         return valorLocacao;
