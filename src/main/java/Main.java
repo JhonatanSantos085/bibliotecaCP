@@ -39,6 +39,7 @@ public class Main {
                     System.out.println("Cadastrando livro");
                     var livro = new Livro();
                     livro.cadastrarLivro();
+
                     db.postBook(livro);
                     break;
                 case 4:

@@ -10,11 +10,22 @@ public class Livro {
     // false = o livro foi locado
 
     Scanner scanner = new Scanner(System.in);
+    BancoDeDados dblivro = new BancoDeDados();
 
     public void cadastrarLivro() {
         System.out.println("Cadastrando o livro...");
-        System.out.println("Título do livro: ");
-        titulo = scanner.nextLine();
+
+        do{
+            System.out.println("Título do livro: ");
+            dblivro.setNomeDoLivro(scanner.nextLine());
+
+            dblivro.verificaNomeUnico();
+            titulo = dblivro.getNomeDoLivro();
+
+        }while (dblivro.getNomeDoLivro().equals("error"));
+
+        // usuario esta o titulo do livro
+
         System.out.println("Gênero do livro: ");
         genero = scanner.nextLine();
         System.out.println("Autor do livro: ");

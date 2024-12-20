@@ -11,6 +11,8 @@ public class BancoDeDados {
 
     private int bookIdCounter = 1;
 
+    private String nomeDoLivro = "";
+
     Scanner scan = new Scanner(System.in);
 
     public BancoDeDados(){
@@ -24,6 +26,16 @@ public class BancoDeDados {
         books.add(livro);
         bookIdCounter ++;
     }
+    public void verificaNomeUnico(){
+        for (Livro livro : books){
+            if (livro.getTitulo().equals(nomeDoLivro)){
+                System.out.println("Livro ja cadastrado.");
+                setNomeDoLivro("error");
+
+            }
+        }
+    }
+
     public void getBook(){
         for (Livro livro : books){
             System.out.println(livro);
@@ -67,7 +79,16 @@ public class BancoDeDados {
     public String toString() {
         return "BancoDeDados{" +
                 "pesquisaDeLocacao='" + pesquisaDeLocacao + '\'' +
+                "nomeDoLivro='" + nomeDoLivro + '\'' +
                 '}';
+    }
+
+    public String getNomeDoLivro() {
+        return nomeDoLivro;
+    }
+
+    public void setNomeDoLivro(String nomeDoLivro) {
+        this.nomeDoLivro = nomeDoLivro;
     }
 
     public String getPesquisaDeLocacao() {
