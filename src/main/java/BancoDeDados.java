@@ -10,6 +10,7 @@ public class BancoDeDados {
     private String pesquisaDeLocacao = "error";
 
     private int bookIdCounter = 1;
+    private int employeeCounter = 1;
 
 
 
@@ -42,6 +43,18 @@ public class BancoDeDados {
                 System.out.println(livro);
             }
             System.out.println();
+        }
+    }
+
+    public void postEmployee(Funcionario funcionario) {
+        funcionario.setId(employeeCounter);
+        employees.add(funcionario);
+        employeeCounter ++;
+    }
+
+    public void getEmployee() {
+        for (Funcionario funcionario: employees) {
+            System.out.println(funcionario);
         }
     }
 

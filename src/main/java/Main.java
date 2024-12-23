@@ -57,6 +57,7 @@ public class Main {
                         switch (opcao2){
                             case 1:
                                 System.out.println("Exibindo informacoes do funcionario");
+                                db.getEmployee();
                                 break;
                             case 2:
                                 System.out.println("Exibindo informacoes do usuario");

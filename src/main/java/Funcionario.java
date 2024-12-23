@@ -26,7 +26,15 @@ public class Funcionario {
         endereco.local();
     }
 
-
+    @Override
+    public String toString() {
+        return "Id: " + getId() +
+                "\n Nome do funcionário: " + getNome() +
+                "\n CPF: " + getCpf() +
+                "Cargo: " + getCargo() +
+                "\n Salário: R$ " + getSalario() +
+                "\n Endereço: " + getEndereco();
+    }
 
     public String getNome() {
         return nome;
@@ -66,6 +74,18 @@ public class Funcionario {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCpf(Long cpf) {
+        this.cpf = cpf;
     }
 }
 
