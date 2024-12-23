@@ -10,26 +10,23 @@ public class Livro {
     // false = o livro foi locado
 
     Scanner scanner = new Scanner(System.in);
-    BancoDeDados dblivro = new BancoDeDados();
+
+    BancoDeDados dbLivro = new BancoDeDados();
+
+    private boolean res = false;
 
     public void cadastrarLivro() {
         System.out.println("Cadastrando o livro...");
 
-        do{
-            System.out.println("Título do livro: ");
-            dblivro.setNomeDoLivro(scanner.nextLine());
-
-            dblivro.verificaNomeUnico();
-            titulo = dblivro.getNomeDoLivro();
-
-        }while (dblivro.getNomeDoLivro().equals("error"));
-
-        // usuario esta o titulo do livro
+        System.out.println("Digite o titulo do livro");
+        titulo = scanner.nextLine();
 
         System.out.println("Gênero do livro: ");
         genero = scanner.nextLine();
+
         System.out.println("Autor do livro: ");
         autor = scanner.nextLine();
+
         setEstadoLocacao(true);
     }
 
@@ -42,6 +39,14 @@ public class Livro {
                 ", Autor='" + autor + '\'' +
                 ", Disponibilidade='" + estadoLocacao + '\'' +
                 '}';
+    }
+
+    public boolean isRes() {
+        return res;
+    }
+
+    public void setRes(boolean res) {
+        this.res = res;
     }
 
     public int getId() {

@@ -36,12 +36,15 @@ public class Main {
 
                     break;
                 case 3:
-                    System.out.println("Cadastrando livro");
+
                     var livro = new Livro();
+
                     livro.cadastrarLivro();
 
                     db.postBook(livro);
+
                     break;
+
                 case 4:
                     System.out.println("Mostrando os dados cadastrados");
                     do{
@@ -117,6 +120,8 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println("Você escolheu devolver um livro.");
+
+
                                 break;
                             default:
                                 System.out.println("Opção inválida! Tente novamente.");

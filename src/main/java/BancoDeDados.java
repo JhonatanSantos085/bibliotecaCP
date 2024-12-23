@@ -11,7 +11,9 @@ public class BancoDeDados {
 
     private int bookIdCounter = 1;
 
-    private String nomeDoLivro = "";
+
+
+
 
     Scanner scan = new Scanner(System.in);
 
@@ -26,15 +28,7 @@ public class BancoDeDados {
         books.add(livro);
         bookIdCounter ++;
     }
-    public void verificaNomeUnico(){
-        for (Livro livro : books){
-            if (livro.getTitulo().equals(nomeDoLivro)){
-                System.out.println("Livro ja cadastrado.");
-                setNomeDoLivro("error");
 
-            }
-        }
-    }
 
     public void getBook(){
         for (Livro livro : books){
@@ -73,23 +67,36 @@ public class BancoDeDados {
         }
 
     }
+    public void devolvendoLivro(){
+        System.out.println("Digite o titulo do livro para fazer a devolucao");
+        pesquisaDeLocacao = scan.nextLine();
+        for (Livro livro : books){
+            if (pesquisaDeLocacao.equals(livro.getTitulo())){
+                System.out.println(livro);
+
+                if (!livro.isEstadoLocacao()){
+                    System.out.println("Livro devolvido com sucesso!");
+                    livro.setEstadoLocacao(true);
+
+                }else {
+                    System.out.println("Este livro não foi locado");
+                }
+
+
+            }else{
+                System.out.println("O livro não foi encontrado!");
+            }
+        }
+    }
 
 
     @Override
     public String toString() {
         return "BancoDeDados{" +
                 "pesquisaDeLocacao='" + pesquisaDeLocacao + '\'' +
-                "nomeDoLivro='" + nomeDoLivro + '\'' +
                 '}';
     }
 
-    public String getNomeDoLivro() {
-        return nomeDoLivro;
-    }
-
-    public void setNomeDoLivro(String nomeDoLivro) {
-        this.nomeDoLivro = nomeDoLivro;
-    }
 
     public String getPesquisaDeLocacao() {
         return pesquisaDeLocacao;
