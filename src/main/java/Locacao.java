@@ -10,6 +10,8 @@ public class Locacao {
     private double precoLocacao = 10;
 
 
+
+
     public double getValorLocacao() {
         return valorLocacao;
     }

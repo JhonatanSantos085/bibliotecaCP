@@ -11,9 +11,6 @@ public class Livro {
 
     Scanner scanner = new Scanner(System.in);
 
-    BancoDeDados dbLivro = new BancoDeDados();
-
-    private boolean res = false;
 
     public void cadastrarLivro() {
         System.out.println("Cadastrando o livro...");
@@ -41,13 +38,7 @@ public class Livro {
                 '}';
     }
 
-    public boolean isRes() {
-        return res;
-    }
 
-    public void setRes(boolean res) {
-        this.res = res;
-    }
 
     public int getId() {
         return id;

@@ -6,7 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Usuario usuario = new Usuario();
         BancoDeDados db = new BancoDeDados();
-        Locacao locacao = new Locacao();
+
 
         byte opcao1;
         byte opcao2;

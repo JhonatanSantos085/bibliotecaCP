@@ -18,6 +18,16 @@ public class Endereco {
         setBairro(scanner.nextLine());
     }
 
+    @Override
+    public String toString() {
+        return "Endereco{" +
+                "rua='" + rua + '\'' +
+                ", numero='" + numero + '\'' +
+                ", bairro='" + bairro + '\'' +
+                ", scanner=" + scanner +
+                '}';
+    }
+
     public String getRua() {
         return rua;
     }
