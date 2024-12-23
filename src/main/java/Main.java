@@ -29,6 +29,7 @@ public class Main {
                     System.out.println("Cadastrando funcionario");
                     Funcionario funcionario = new Funcionario();
                     funcionario.cadastrarFuncionario();
+                    db.postEmployee(funcionario);
                     break;
                 case 2:
                     System.out.println("Cadastrando usuario");

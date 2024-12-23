@@ -24,7 +24,6 @@ public class Endereco {
                 "rua='" + rua + '\'' +
                 ", numero='" + numero + '\'' +
                 ", bairro='" + bairro + '\'' +
-                ", scanner=" + scanner +
                 '}';
     }
 
