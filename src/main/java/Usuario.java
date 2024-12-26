@@ -50,12 +50,18 @@ public class Usuario {
                 ", nome='" + nome + '\'' +
                 ", codigo=" + codigo +
                 ", cpf=" + cpf +
-                ", endereco=" + endereco +
                 ", email='" + email + '\'' +
-                ", tipoDeUsuario=" + tipoDeUsuario +
-                ", tipoValido=" + tipoValido +
-                ", scan=" + scan +
+                ", tipoDeUsuario=" + tipoDeUsuario + '\'' +
+                ", Endereço: " + getEndereco()+
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

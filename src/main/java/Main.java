@@ -4,8 +4,10 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        Usuario usuario = new Usuario();
         BancoDeDados db = new BancoDeDados();
+        var funcionario = new Funcionario();
+        var usuario = new Usuario();
+        var livro = new Livro();
 
 
         byte opcao1;
@@ -27,23 +29,19 @@ public class Main {
 
                 case 1:
                     System.out.println("Cadastrando funcionario");
-                    Funcionario funcionario = new Funcionario();
+
                     funcionario.cadastrarFuncionario();
                     db.postEmployee(funcionario);
                     break;
                 case 2:
                     System.out.println("Cadastrando usuario");
                     usuario.cadastrarUsuario();
-
+                    db.postUsers(usuario);
                     break;
                 case 3:
 
-                    var livro = new Livro();
-
                     livro.cadastrarLivro();
-
                     db.postBook(livro);
-
                     break;
 
                 case 4:
@@ -62,7 +60,7 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println("Exibindo informacoes do usuario");
-
+                                db.getUsers();
                                 break;
                             case 3:
                                 System.out.println("Exibindo informacoes do livro");
@@ -122,6 +120,7 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println("Você escolheu devolver um livro.");
+                                db.devolvendoLivro();
 
 
                                 break;

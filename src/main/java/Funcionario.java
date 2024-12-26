@@ -22,7 +22,7 @@ public class Funcionario {
         salario = scan.nextDouble();
         System.out.println("Digite o endereco do funcionario");
 
-        endereco = new Endereco();
+        var endereco = new Endereco();
         endereco.local();
     }
 

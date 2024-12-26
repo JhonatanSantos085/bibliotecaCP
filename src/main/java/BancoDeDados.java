@@ -11,6 +11,7 @@ public class BancoDeDados {
 
     private int bookIdCounter = 1;
     private int employeeCounter = 1;
+    private int usersCounter = 1;
 
 
 
@@ -57,6 +58,20 @@ public class BancoDeDados {
             System.out.println(funcionario);
         }
     }
+
+    public void postUsers(Usuario usuario){
+        usuario.setId(usersCounter);
+        users.add(usuario);
+        usersCounter++;
+    }
+
+    public void getUsers(){
+        for (Usuario usuario : users){
+            System.out.println(usuario);
+        }
+    }
+
+
 
     public void locandoLivro(){
         System.out.println("Digite o titulo do livro que sera locado");
