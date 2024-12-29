@@ -8,22 +8,23 @@ public class BancoDeDados {
     private List<Usuario> users;
 
     private String pesquisaDeLocacao = "error";
+    private String pesquisaDeDelecao;
+    private String pesquisaDeAtualizacao;
+    String atualizacao;
 
     private int bookIdCounter = 1;
     private int employeeCounter = 1;
     private int usersCounter = 1;
 
-
-
-
-
     Scanner scan = new Scanner(System.in);
+
 
     public BancoDeDados(){
         books = new ArrayList<>();
         employees = new ArrayList<>();
         users = new ArrayList<>();
     }
+
 
     public void postBook(Livro livro){
         livro.setId(bookIdCounter);
@@ -32,13 +33,14 @@ public class BancoDeDados {
     }
 
 
-
     public void getBook(){
         for (Livro livro : books){
             System.out.println(livro);
         }
     }
-    public void getBookAvailable(){
+
+
+    public void showAvailableBooks() {
         for (Livro livro : books){
             if (livro.isEstadoLocacao()){
                 System.out.println(livro);
@@ -47,11 +49,13 @@ public class BancoDeDados {
         }
     }
 
+
     public void postEmployee(Funcionario funcionario) {
         funcionario.setId(employeeCounter);
         employees.add(funcionario);
         employeeCounter ++;
     }
+
 
     public void getEmployee() {
         for (Funcionario funcionario: employees) {
@@ -59,11 +63,13 @@ public class BancoDeDados {
         }
     }
 
+
     public void postUsers(Usuario usuario){
         usuario.setId(usersCounter);
         users.add(usuario);
         usersCounter++;
     }
+
 
     public void getUsers(){
         for (Usuario usuario : users){
@@ -71,9 +77,77 @@ public class BancoDeDados {
         }
     }
 
+    public void deleteBook() {
+        System.out.println("Digite o titulo do livro que deseja deletar: ");
+        pesquisaDeDelecao = scan.nextLine();
+        for (Livro livro : books) {
+            if (livro.getTitulo().equals(pesquisaDeDelecao)) {
+                books.remove(livro);
+                System.out.println("Livro '"+livro.getTitulo()+"' excluido com sucesso");
 
+            } else {
+                System.out.println("O livro não foi encontrado");
+            }
+            break;
+        }
 
-    public void locandoLivro(){
+    }
+
+    public void putBook() {
+        System.out.println("Digite o titulo do livro que sera alterado");
+        pesquisaDeAtualizacao = scan.nextLine();
+        for (Livro livro : books) {
+            if (livro.getTitulo().equals(pesquisaDeAtualizacao)) {
+                byte op = 0;
+                do {
+                    System.out.println("Escolha uma opção abaixo\n" +
+                            "[0] - Voltar\n" +
+                            "[1] - Atualizar titulo\n" +
+                            "[2] - Atualizar genero\n" +
+                            "[3] - Atualizar autor\n");
+                    op = scan.nextByte();
+
+                    switch (op) {
+                        case 0:
+                            System.out.println("Voltando");
+                            break;
+
+                        case 1:    // Testar em producao
+                            System.out.println("Digite o novo titulo do livro '" + livro.getTitulo() + "'");
+                            scan.nextLine();
+                            atualizacao = scan.nextLine();
+                            livro.setTitulo(atualizacao);
+                            break;
+
+                        case 2:
+                            System.out.println("Digite o novo genero do livro '" + livro.getTitulo() + "'");
+                            scan.nextLine();
+                            atualizacao = scan.nextLine();
+                            livro.setGenero(scan.nextLine());
+                            break;
+
+                        case 3:
+                            System.out.println("Digite o novo autor do livro '" + livro.getTitulo() + "'");
+                            scan.nextLine();
+                            atualizacao = scan.nextLine();
+                            livro.setAutor(scan.nextLine());
+                            break;
+
+                        default:
+                            System.out.println("Opcao invalida");
+                    }
+
+                } while (op != 0);
+
+            } else {
+                System.out.println("O livro nao foi encontrado");
+            }
+            break;
+
+        }
+    }
+
+    public void rentBook() {
         System.out.println("Digite o titulo do livro que sera locado");
         pesquisaDeLocacao = scan.nextLine();
         for (Livro livro : books){
@@ -96,7 +170,9 @@ public class BancoDeDados {
         }
 
     }
-    public void devolvendoLivro(){
+
+
+    public void returnBook() {
         System.out.println("Digite o titulo do livro para fazer a devolucao");
         pesquisaDeLocacao = scan.nextLine();
         for (Livro livro : books){
@@ -123,6 +199,9 @@ public class BancoDeDados {
     public String toString() {
         return "BancoDeDados{" +
                 "pesquisaDeLocacao='" + pesquisaDeLocacao + '\'' +
+                "pesquisaDeDelecao='" + pesquisaDeDelecao + '\'' +
+                "pesquisaDeAtualizacao='" + pesquisaDeAtualizacao + '\'' +
+                "atualizacao='" + atualizacao + '\'' +
                 '}';
     }
 
@@ -134,4 +213,6 @@ public class BancoDeDados {
     public void setPesquisaDeLocacao(String pesquisaDeLocacao) {
         this.pesquisaDeLocacao = pesquisaDeLocacao;
     }
+
+
 }

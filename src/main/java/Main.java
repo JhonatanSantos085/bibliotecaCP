@@ -5,15 +5,11 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         BancoDeDados db = new BancoDeDados();
-        var funcionario = new Funcionario();
-        var usuario = new Usuario();
-        var livro = new Livro();
-
 
         byte opcao1;
         byte opcao2;
         byte opcao3;
-        byte opcao4;
+        //byte opcao4;
 
         do {
             System.out.print("Escolha uma opção abaixo\n" +
@@ -29,17 +25,18 @@ public class Main {
 
                 case 1:
                     System.out.println("Cadastrando funcionario");
-
+                    var funcionario = new Funcionario();
                     funcionario.cadastrarFuncionario();
                     db.postEmployee(funcionario);
                     break;
                 case 2:
                     System.out.println("Cadastrando usuario");
+                    var usuario = new Usuario();
                     usuario.cadastrarUsuario();
                     db.postUsers(usuario);
                     break;
                 case 3:
-
+                    var livro = new Livro();
                     livro.cadastrarLivro();
                     db.postBook(livro);
                     break;
@@ -73,8 +70,6 @@ public class Main {
                                 System.out.println("Digite uma opcao valida.");
 
                         }
-
-
                     }while(opcao2 != 0);
                     break;
                 case 5:
@@ -83,7 +78,11 @@ public class Main {
                         System.out.println("Escolha uma opção abaixo\n" +
                                 "[0] - Voltar para menu princial\n" +
                                 "[1] - Locar Livro\n" +
-                                "[2] - Devolucao\n" );
+                                "[2] - Ver Livros Disponiveis\n" +
+                                "[3] - Devolucao\n" +
+                                "[4] - Atualizar Livro\n" +
+                                "[5] - Excluir livro\n"
+                        );
                         opcao3 = scanner.nextByte();
 
                         switch (opcao3) {
@@ -91,38 +90,26 @@ public class Main {
                                 System.out.println("Voltando para o menu principal, só um minuto...");
                                 break;
                             case 1:
-                                System.out.println("Você selecionou a opção de um alugar um livro.");
-
+                                System.out.println("Voce selecionou a opção de locar um livro.");
                                 do {
-                                    System.out.println("Escolha uma opção abaixo\n" +
-                                            "[0] - Voltar para menu princial\n" +
-                                            "[1] - Locar Livro\n" +
-                                            "[2] - Mostrar Livros Disponiveis\n" );
-                                    opcao4= scanner.nextByte();
-                                    switch(opcao4){
-                                        case 0:
-                                            System.out.println("Voltando");
-                                            break;
-                                        case 1:
-                                            do {
-                                                db.locandoLivro();
-                                            }while (db.getPesquisaDeLocacao().equals("error"));
-                                            break;
-                                        case 2:
-                                            db.getBookAvailable();
-                                            break;
-                                        default:
-                                            System.out.println("Opção invalida");
-                                    }
-
-                                }while(opcao4 != 0);
-
+                                    db.rentBook();
+                                } while (db.getPesquisaDeLocacao().equals("error"));
                                 break;
                             case 2:
-                                System.out.println("Você escolheu devolver um livro.");
-                                db.devolvendoLivro();
-
-
+                                System.out.println("Ver Livros Disponiveis para locacao");
+                                db.showAvailableBooks();
+                                break;
+                            case 3:
+                                System.out.println("Voce escolheu devolver um livro.");
+                                db.returnBook();
+                                break;
+                            case 4:
+                                System.out.println("Voce escolheu atualizar informacoes de um livro");
+                                db.putBook();
+                                break;
+                            case 5:
+                                System.out.println("Voce escolheu deletar um livro");
+                                db.deleteBook();
                                 break;
                             default:
                                 System.out.println("Opção inválida! Tente novamente.");
@@ -135,8 +122,6 @@ public class Main {
                     break;
                 default:
                     System.out.println("Digite uma opcao valida");
-
-
             }
 
         } while (opcao1 != 0);
