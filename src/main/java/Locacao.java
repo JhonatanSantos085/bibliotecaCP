@@ -7,6 +7,7 @@ public class Locacao {
     private Data dataLocacao;
     private Data dataDevolucao;
     private Livro objLivroLocado;
+    private double precoLocacao = 10;
 
 
 
@@ -73,5 +74,13 @@ public class Locacao {
 
     public void setObjLivroLocado(Livro objLivroLocado) {
         this.objLivroLocado = objLivroLocado;
+    }
+
+    public double getPrecoLocacao() {
+        return precoLocacao;
+    }
+
+    public void setPrecoLocacao(double precoLocacao) {
+        this.precoLocacao = precoLocacao;
     }
 }
